@@ -1,0 +1,30 @@
+<div class="language-selection">
+  {{ $currentPage := . }}
+  {{ $baseURL := trim $currentPage.Site.BaseURL "/" }}
+  {{ $defaultLang := $.Site.Params.defaultContentLanguage }}
+  {{ $currentLang := $currentPage.Language.Lang }}
+  {{ $currentPath := $currentPage.RelPermalink }}
+  
+  {{ range .Site.Languages }}
+    {{ $langCode := .Lang }}
+    {{ $translatedURL := "" }}
+  
+    {{ if eq $langCode $defaultLang }}
+      {{ $translatedURL = strings.TrimPrefix $currentPath (printf "/%s" $currentLang) }}
+    {{ else }}
+      {{ if eq $currentLang $defaultLang }}
+        {{ $translatedURL = printf "/%s%s" $langCode $currentPath }}
+      {{ else }}
+        {{ $translatedURL = strings.Replace $currentPath (printf "/%s" $currentLang) (printf "/%s" $langCode) 1 }}
+      {{ end }}
+    {{ end }}
+  
+    <div {{ if eq $langCode $currentLang }}class="selected-language"{{ end }}>
+      {{ if eq $langCode $currentLang }}
+        <span>{{ $langCode | upper }}</span>
+      {{ else }}
+        <a href="{{ (printf "%s%s" $baseURL $translatedURL) | safeURL }}">{{ $langCode | upper }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>

@@ -1,10 +1,20 @@
 // Any variables that need to use Hugo configuration need to be declared here
 // Colors
-$primary: {{ .Site.Params.colors.primary | default "#f24088" }};
+$primary: {{ .Site.Params.colors.primary | default "#2e4a6b" }};
 $black: {{ .Site.Params.colors.black | default "#2f2f41" }};
 $white: {{ .Site.Params.colors.white | default "#ffffff" }};
 $white-offset: {{ .Site.Params.colors.white_offset | default "#f6f7ff" }};
 $grey: {{ .Site.Params.colors.grey | default "#5C5A5A" }};
+
+
+
+$base-size: 3em;
+$dynamic-size: 4vw;
+$min-size: 1.5em;
+$max-size: 6em;
+
+
+
 
 // Fonts
 $font-family-base: {{ .Site.Params.fonts.base }}, Helvetica, Arial, sans-serif, -apple-system;
@@ -57,3 +67,109 @@ body {
     line-height: 1.3;
   }
 }
+
+
+.language-selection {
+  font-size: 0.8em;
+  display: flex;
+  margin: 0 8em;
+  gap: 1em;
+}
+
+.language-selection > div {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.selected-language {
+  font-weight: bold;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.intro-photo {
+  position: relative;
+}
+
+.intro-text-overlay {
+  position: absolute;
+  top: 50%; /* Zentriert vertikal */
+  left: 50%; /* Zentriert horizontal */
+  transform: translate(-50%, -50%); /* Exakte Zentrierung */
+  z-index: 10; /* Höher als das Bild */
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3); /* Optional */
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.intro-video-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Passt das Video an, um das gesamte Element zu füllen */
+}
+
+.trapezoid-container {
+  position: absolute;
+  top: 10%; /* Anpassung für die vertikale Position */
+  left: 0; /* Startet am linken Rand */
+  width: 80%; /* Zwei Drittel der Bildschirmbreite */
+  height: 50%; /* Hälfte der Bildschirmhöhe */
+  z-index: 5; /* Über dem Video und anderen Elementen */
+  overflow: hidden; /* Um den Inhalt innerhalb des Trapezes zu halten */
+}
+
+.blurry-trapezoid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1); /* Leichte weiße Transparenz */
+  backdrop-filter: blur(20px); /* Der Blur-Effekt */
+  clip-path: polygon(0% 0%, 80% 0%, 60% 100%, 0% 100%); /* Form des Trapezes */
+  border-radius: 10px; /* Optional für weiche Ecken */
+}
+
+
+.banner-text-main {
+  position: absolute;
+  top: 35%; /* Vertikal zentriert */
+  left: 5%; /* Leichte Verschiebung nach rechts */
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: calc(3.75vw + 0.4em);
+  font-family: 'Oswald', sans-serif; /* Kantigere Schriftart für Stärke */
+  font-weight: 700; /* Fetter für mehr Stärke */
+  text-transform: uppercase; /* Alle Buchstaben in Großbuchstaben */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Stärkerer Schatten für mehr Kontrast */
+  letter-spacing: 2px; /* Mehr Abstand zwischen den Buchstaben für bessere Lesbarkeit */
+}
+
+
+.banner-text {
+  position: absolute;
+  top: 79%; /* Vertikal zentriert */
+  left: 5%; /* Leichte Verschiebung nach rechts */
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: calc(1vw + 0.1em);
+  font-family: 'Oswald', sans-serif; /* Kantigere Schriftart für Stärke */
+  font-weight: 700; /* Fetter für mehr Stärke */
+  text-transform: uppercase; /* Alle Buchstaben in Großbuchstaben */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Stärkerer Schatten für mehr Kontrast */
+  letter-spacing: 2px; /* Mehr Abstand zwischen den Buchstaben für bessere Lesbarkeit */
+}
+

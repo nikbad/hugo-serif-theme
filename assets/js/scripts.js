@@ -20,3 +20,33 @@ if (header) {
     }
   });
 }
+
+
+document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    const parentMenuItem = this.parentElement;
+    const submenu = parentMenuItem.querySelector('.sub-menu');
+
+    // Toggle submenu visibility
+    if (submenu.style.display === 'block') {
+      submenu.style.display = 'none';
+    } else {
+      // Close all other open submenus
+      document.querySelectorAll('.sub-menu').forEach(menu => {
+        menu.style.display = 'none';
+      });
+      submenu.style.display = 'block';
+    }
+  });
+});
+
+// Close submenus when clicking outside
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.menu-item.has-submenu')) {
+    document.querySelectorAll('.sub-menu').forEach(menu => {
+      menu.style.display = 'none';
+    });
+  }
+});
+

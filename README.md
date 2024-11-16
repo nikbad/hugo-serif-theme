@@ -182,7 +182,7 @@ You can edit the themes main colors in the `config.toml`. These colors are injec
 #config.toml
 
   [params.colors]
-    primary = "#f24088"
+    primary = "#2e4a6b"
     black = "#2f2f41"
     white = "#ffffff"
     white_offset = "#f6f7ff"

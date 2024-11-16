@@ -1,35 +1,69 @@
 .main-menu {
+  display: block;
+}
+
+.main-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu .menu-item {
+  position: relative;
+  display: inline-block;
+}
+
+.main-menu .menu-item a,
+.main-menu .submenu-toggle {
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  color: #2e4a6b; /* Replace with your primary color */
+  cursor: pointer;
+  position: relative;
+}
+
+.main-menu .menu-item a:hover,
+.main-menu .submenu-toggle:hover {
+  text-decoration: underline;
+  color: #1e3a5b; /* Replace with a slightly darker or lighter color */
+}
+
+.main-menu .submenu-toggle .arrow {
+  margin-left: 5px;
+  font-size: 10.5px;
+  display: inline-block;
+}
+
+/* Submenu is hidden by default */
+.main-menu .sub-menu {
   display: none;
-  @include media-breakpoint-up(md) {
-    display: block;
-  }
-  > ul {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    > li {
-      list-style: none;
-      font-size: 1rem;
-      > a {
-        padding: 10px 12px 10px 12px;
-        display: inline-block;
-        font-weight: normal;
-        text-decoration: none;
-        color: $primary;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-      &.active {
-        > a {
-          font-weight: bold;
-          text-decoration: none;
-          &:hover {
-            text-decoration: none;
-            transition: all 225ms ease-in 0s;
-          }
-        }
-      }
-    }
-  }
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0;
+}
+
+/* Show submenu on hover */
+.main-menu .menu-item.has-submenu:hover > .sub-menu {
+  display: block;
+}
+
+/* Submenu items */
+.main-menu .sub-menu li {
+  display: block;
+}
+
+.main-menu .sub-menu a {
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.main-menu .sub-menu a:hover {
+  background: #2e4a6b;
+  color: #fff;
 }

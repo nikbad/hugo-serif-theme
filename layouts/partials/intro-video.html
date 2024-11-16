@@ -1,0 +1,9 @@
+{{ if .Params.intro_video }}
+<div class="intro-video-container">
+  <video autoplay muted loop playsinline class="intro-video">
+    <source src="{{ .Params.intro_video | relURL }}" type="video/mp4">
+    Ihr Browser unterstützt keine HTML5-Videos.
+  </video>
+  {{ partial "blurry-trapezoid.html" . }}
+</div>
+{{ end }}

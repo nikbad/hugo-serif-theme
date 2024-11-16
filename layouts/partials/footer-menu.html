@@ -2,14 +2,14 @@
   <ul>
     {{ $currentPage := . }}
     {{ range .Site.Menus.footer }}
-    {{ $active := or ($currentPage.IsMenuCurrent "footer" .) ($currentPage.HasMenuCurrent "footer" .) }}
-    {{ $active = or $active (eq (.URL | relLangURL) ($currentPage.RelPermalink | relLangURL)) }}
-    <li class="menu-item-{{ .Name | lower }} {{ if $active }}active{{ end }}">
-      <a href="{{.URL}}">
-        {{ .Pre }}
-        <span>{{ .Name }}</span>
-      </a>
-    </li>
-    {{end}}
+      {{ $active := or ($currentPage.IsMenuCurrent "footer" .) ($currentPage.HasMenuCurrent "footer" .) }}
+      {{ $active = or $active (eq (.URL | relLangURL) ($currentPage.RelPermalink | relLangURL)) }}
+      <li class="menu-item-{{ .Name | urlize | lower }} {{ if $active }}active{{ end }}">
+        <a href="{{ .URL | relLangURL }}">
+          {{ .Pre }}
+          <span>{{ .Name }}</span>
+        </a>
+      </li>
+    {{ end }}
   </ul>
 </div>
