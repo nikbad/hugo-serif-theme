@@ -17,6 +17,49 @@
     {{ $style = $style | minify | fingerprint }}
   {{ end }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  <link rel="stylesheet" href="/css/main.css">
+
+<!-- Conditional CSS Loading Based on .Type -->
+{{ if eq .Type "ai-strategy" }}
+<link rel="stylesheet" href="/css/ai-strategy.css">
+{{ end }}
+
+{{ if eq .Type "ai-governance" }}
+<link rel="stylesheet" href="/css/ai-governance.css">
+{{ end }}
+
+{{ if eq .Type "eu-ai-act" }}
+<link rel="stylesheet" href="/css/eu-ai-act.css">
+{{ end }}
+
+{{ if eq .Type "ai-ethics" }}
+<link rel="stylesheet" href="/css/ai-ethics.css">
+{{ end }}
+
+{{ if eq .Type "ai-literacy" }}
+<link rel="stylesheet" href="/css/ai-literacy.css">
+{{ end }}
+
+{{ if eq .Type "trainings" }}
+<link rel="stylesheet" href="/css/trainings.css">
+{{ end }}
+
+{{ if eq .Type "courses" }}
+<link rel="stylesheet" href="/css/courses.css">
+{{ end }}
+
+{{ if eq .Type "webinars" }}
+<link rel="stylesheet" href="/css/webinars.css">
+{{ end }}
+
+{{ if eq .Type "seminars" }}
+<link rel="stylesheet" href="/css/seminars.css">
+{{ end }}
+
+{{ if or (eq .Type "blog") (eq .Layout "list") (eq .Section "blog") }}
+<link rel="stylesheet" href="/css/blog.css">
+{{ end }}
+
 
   {{ block "header_css" . }}{{ end }}
 

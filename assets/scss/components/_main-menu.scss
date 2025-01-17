@@ -18,7 +18,7 @@
   padding: 10px 15px;
   display: block;
   text-decoration: none;
-  color: #2e4a6b; /* Replace with your primary color */
+  // color: #2e4a6b; /* Replace with your primary color */
   cursor: pointer;
   position: relative;
 }
@@ -66,4 +66,10 @@
 .main-menu .sub-menu a:hover {
   background: #2e4a6b;
   color: #fff;
+}
+
+@media (max-width: 1300px) {
+  .main-menu {
+    display: none;
+  }
 }
